@@ -1,5 +1,5 @@
-import React, { useState , useEffect } from "react";
-import { Button } from "../../globalStyles";
+import React, { useState, useEffect } from "react";
+import { Button } from "./globalStyles";
 import {
   Nav,
   NavbarContainer,
@@ -10,9 +10,12 @@ import {
   NavItem,
   NavLinks,
   NavItemBtn,
-  NavBtnLink
+  NavBtnLink,
+  NavShoppingCart,
+  NavSpan,
 } from "./Navbar.elements";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { MdShoppingCart } from "react-icons/md";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -21,19 +24,18 @@ const Navbar = () => {
   };
 
   const showButton = () => {
-    if(window.innerWidth <= 960){
-        setButton(false)
-    } else{
-        setButton(true);
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
     }
   };
 
-  useEffect(() =>{
-    showButton()
-  }
-  ,[])
+  useEffect(() => {
+    showButton();
+  }, []);
 
-  window.addEventListener('resize' , showButton);
+  window.addEventListener("resize", showButton);
 
   return (
     <>
@@ -56,6 +58,14 @@ const Navbar = () => {
             <NavItem>
               <NavLinks to="/products">Products</NavLinks>
             </NavItem>
+
+            <NavItem>
+              <NavShoppingCart to="/shoppingCart">
+                <MdShoppingCart />
+                <NavSpan>0</NavSpan>
+              </NavShoppingCart>
+            </NavItem>
+
             <NavItemBtn>
               {button ? (
                 <NavBtnLink to="/sign-up">
@@ -63,7 +73,9 @@ const Navbar = () => {
                 </NavBtnLink>
               ) : (
                 <NavBtnLink to="/sign-up">
-                  <Button fontBig primary>SIGN UP</Button>
+                  <Button fontBig primary>
+                    SIGN UP
+                  </Button>
                 </NavBtnLink>
               )}
             </NavItemBtn>
