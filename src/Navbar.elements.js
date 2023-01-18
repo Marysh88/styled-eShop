@@ -15,6 +15,9 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 999;
+  @media screen and (max-width:440px){
+    font-size:20px;
+  }
 `;
 
 export const NavbarContainer = styled(Container)`
@@ -33,10 +36,16 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   display: flex;
   align-items: center;
+  @media screen and (max-width:440px){
+    font-size:20px;
+  }
 `;
 
 export const NavIcon = styled(GiShoppingBag)`
-  margin-right: 0.5rem;
+  margin-right: .5rem;
+  @media screen and (max-width:440px){
+    margin-right:.2rem
+  }
 `;
 
 export const MobileIcon = styled.div`

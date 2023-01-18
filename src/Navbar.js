@@ -16,7 +16,7 @@ import {
 } from "./Navbar.elements";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
-const Navbar = () => {
+const Navbar = ({number}) => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const handleClick = () => {
@@ -62,22 +62,16 @@ const Navbar = () => {
             <NavItem>
               <NavShoppingCart to="/shoppingCart">
                 <MdShoppingCart />
-                <NavSpan>0</NavSpan>
+                <NavSpan>{number}</NavSpan>
               </NavShoppingCart>
             </NavItem>
 
             <NavItemBtn>
-              {button ? (
+             
                 <NavBtnLink to="/sign-up">
                   <Button primary>SIGN UP</Button>
                 </NavBtnLink>
-              ) : (
-                <NavBtnLink to="/sign-up">
-                  <Button fontBig primary>
-                    SIGN UP
-                  </Button>
-                </NavBtnLink>
-              )}
+              
             </NavItemBtn>
           </NavMenu>
         </NavbarContainer>
