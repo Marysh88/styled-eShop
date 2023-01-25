@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useContext  } from "react";
 import { Button } from "./globalStyles";
 import {
   Nav,
@@ -16,7 +16,14 @@ import {
 } from "./Navbar.elements";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
-const Navbar = ({number}) => {
+import AppContext from "./AppContext";
+
+
+
+
+const Navbar = () => {
+  const {number} = useContext(AppContext)
+  
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const handleClick = () => {

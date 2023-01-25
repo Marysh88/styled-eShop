@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import {CartItems, CartItemsHeader , CartItemsEmpty , CartItemsList, DivImage,CartItemsTitle, CartItemsImage, CartItemsFunction, CartItemsAdd ,CartItemsRemove ,CartItemsPrice ,CartItemsTotalPriceName ,CartItemsTotalPrice} from './ShoppingCart.elements'
 
-const ShoppingCart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
+import AppContext from "./AppContext";
+
+const ShoppingCart = () => {
+
+  const {cartItems, handleAddProduct,handleRemoveProduct} = useContext(AppContext);
   const totalPrice = cartItems.reduce(
     (price, item) => price + item.quantity * item.price,
     0

@@ -1,11 +1,18 @@
-import React from 'react'
+import React , {useContext}from 'react'
 import { Scroller ,DivContainer,OneProduct,DivImg,TheImg ,DivPrice , DivTitle , DivDescription ,DivButton ,DivDetail} from './Products.elements';
 
+import LoadingSpinner from './LoadingSpinner';
+import AppContext from './AppContext';
 
-const Products = ({ products, handleAddProduct }) => {
+
+const Products = () => {
+  const {products , isLoading ,handleAddProduct} = useContext(AppContext)
+  
   return (
     
-      
+    isLoading ? (
+      <LoadingSpinner />
+    ) : (
 
       <Scroller>
       <DivContainer>
@@ -40,8 +47,9 @@ const Products = ({ products, handleAddProduct }) => {
     </Scroller>
 
 
-    
+    )
   )
+
 }
 
 export default Products
